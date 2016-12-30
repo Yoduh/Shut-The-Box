@@ -188,9 +188,6 @@ public class WindowBuilder extends JFrame implements ActionListener {
     		}
     	}
     	if(e.getSource() == btnNewGame) {
-    		//frame.removeAll();
-    		//revalidate();
-    		//repaint();
     		resetBoard();
     	}
     }
