@@ -40,7 +40,7 @@ public class Board {
 				return 4;	// Square value is greater than dice result, or second pick doesn't add up to dice result
 			} if(turns == 0) {
 				for(int i = 0; i < squares.length; i++) {
-					if(squares[i].isSquareHit()) {
+					if(squares[i].isSquareHit() || squares[i].value() == squares[num].value()) {
 						continue;
 					} else if(squares[i].value() + squares[num].value() == diceTot || (!squares[num].isSquareHit() && squares[num].value() == diceTot)) {
 						badPlay = 0;
