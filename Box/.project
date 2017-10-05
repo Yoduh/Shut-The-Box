@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/images/dice</name>
-			<type>2</type>
-			<location>C:/Users/Yoduh/Desktop/dice</location>
-		</link>
-	</linkedResources>
 </projectDescription>

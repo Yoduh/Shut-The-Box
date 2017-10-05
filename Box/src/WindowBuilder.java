@@ -60,7 +60,7 @@ public class WindowBuilder extends JFrame implements ActionListener {
 	public WindowBuilder() {
 		faces = new ImageIcon[7];
 		for(int i = 0; i <= 6; i++) {
-			faces[i] = new ImageIcon(WindowBuilder.class.getResource("/images/dice/" + i + ".jpg"));
+			faces[i] = new ImageIcon(this.getClass().getResource(i + ".jpg"));
 		}
 		dice = new int[] {-1, -1};
 		
