@@ -14,4 +14,14 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+<<<<<<< HEAD
+=======
+	<linkedResources>
+		<link>
+			<name>src/images/dice</name>
+			<type>2</type>
+			<location>C:/Users/Yoduh/Desktop/dice</location>
+		</link>
+	</linkedResources>
+>>>>>>> branch 'master' of https://github.com/Yoduh/Shut-The-Box.git
 </projectDescription>
