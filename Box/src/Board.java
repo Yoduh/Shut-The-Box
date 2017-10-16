@@ -87,11 +87,11 @@ public class Board {
 		return dice;
 	}
 	
-	public boolean canUseTwoDice() {
+	public boolean canUseOneDice() {
 		if(squares[6].isSquareHit() && squares[7].isSquareHit() && squares[8].isSquareHit()) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 	
 	public boolean canRoll() {

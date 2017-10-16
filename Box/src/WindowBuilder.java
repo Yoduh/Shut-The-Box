@@ -117,6 +117,7 @@ public class WindowBuilder extends JFrame implements ActionListener {
 		btnRollOne.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnRollOne.setBounds(10, 67, 60, 30);
 		btnRollOne.addActionListener(this);
+		btnRollOne.setEnabled(false);
 		contentPane.add(btnRollOne);
 		
 		btnRollTwo = new JButton("Two");
@@ -148,11 +149,10 @@ public class WindowBuilder extends JFrame implements ActionListener {
     			}
     			else {
     				lblUpdate.setText(boardResponse(hitResult));
-    			}
-    			if(!board.canUseTwoDice()) {
-    				btnRollTwo.setEnabled(false);
-    			}
-        		
+    				if(hitResult == 2 && board.canUseOneDice()) {
+    				    btnRollOne.setEnabled(true);
+    				}
+    			}        		
     		}
     	}
     	if(e.getSource() == btnRollTwo) {
@@ -222,7 +222,7 @@ public class WindowBuilder extends JFrame implements ActionListener {
     
     public void resetBoard() {
     	lblUpdate.setText("");
-    	btnRollOne.setEnabled(true);
+    	btnRollOne.setEnabled(false);
 		btnRollTwo.setEnabled(true);
 		lblDice.setIcon(faces[0]);
 		lblDice_1.setIcon(faces[0]);
