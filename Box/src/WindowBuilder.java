@@ -209,7 +209,7 @@ public class WindowBuilder extends JFrame implements ActionListener {
     
     public void boardWin(int score) {
     	if(score == 0) {
-    		lblUpdate.setText("Winner! Score = 0!");
+    		lblUpdate.setText("Winner Winner Chicken Dinner! Score = 0!");
     	} else {
     		lblUpdate.setText("Game over! Score = " + score);
     	}
@@ -221,12 +221,12 @@ public class WindowBuilder extends JFrame implements ActionListener {
     }
     
     public void resetBoard() {
+        board.resetDiceTotal();
     	lblUpdate.setText("");
     	btnRollOne.setEnabled(false);
 		btnRollTwo.setEnabled(true);
 		lblDice.setIcon(faces[0]);
 		lblDice_1.setIcon(faces[0]);
-		board.setTurns(2);
     	for(int i = 0; i < buttons.length; i++) {
     		buttons[i].setEnabled(true);
     		board.getSquares()[i].setSquareHit(false);
