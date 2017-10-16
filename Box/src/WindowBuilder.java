@@ -196,7 +196,7 @@ public class WindowBuilder extends JFrame implements ActionListener {
     	if(num == 0) {
     		return "Number is already chosen. Choose another.";
     	} else if(num == 1) {
-    		return "Wow, good choice. Pick 1 more";
+    		return "Wow, good choice. Pick another!";
     	} else if(num == 2) {
     		return "Good job. Roll again!";
     	} else if(num == 3) {

@@ -32,7 +32,7 @@ public class Board {
 	
 	public int hit(int num) {
 		int badPlay = 1;
-		System.out.println("turns before = " + turns);
+		//System.out.println("turns before = " + turns);
 		if(haveTurns(num)) {
 			if(squares[num].isSquareHit()) {
 				return 0;	// Square already picked
@@ -52,15 +52,15 @@ public class Board {
 			}
 			squares[num].hit();
 			turns++;
-			System.out.println("turns after = " + turns + ", total remain = " + diceTot);
+			//System.out.println("turns after = " + turns + ", total remain = " + diceTot);
 			if(squares[num].value() == diceTot) {
 				turns++;
 				diceTot = 0;
-				System.out.println("turns increased again! turns = " + turns);
+				//System.out.println("turns increased again! turns = " + turns);
 			}
 			if(turns == 1) {
 				diceTot -= squares[num].value();
-				System.out.println("syke, total remain = " + diceTot);
+				//System.out.println("syke, total remain = " + diceTot);
 				return 1;	// First square just picked
 			} else {
 				diceTot = 0;
