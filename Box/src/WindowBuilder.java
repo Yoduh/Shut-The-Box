@@ -1,5 +1,3 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,12 +8,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.JTextPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 
 public class WindowBuilder extends JFrame implements ActionListener {
-	static WindowBuilder frame;
+    private static final long serialVersionUID = 1L;
+    static WindowBuilder frame;
 	ImageIcon faces[];
 	int[] dice;
 	int numOfDice;

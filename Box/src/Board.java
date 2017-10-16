@@ -1,10 +1,8 @@
-import java.awt.EventQueue;
 import java.util.Random;
 
 public class Board {
 
 	private Square[] squares;
-	private int turns;
 	private int[] dice;
 	private int diceTot;
 	private Random r;
@@ -14,7 +12,6 @@ public class Board {
 		for(int i = 0; i < squares.length; i++) {
 			squares[i] = new Square(i);
 		}
-		turns = 2;
 		dice = new int[] {-1, -1};
 		r = new Random();
 	}
@@ -24,37 +21,32 @@ public class Board {
 	}
 	
 	public int hit(int num) {
-		int badPlay = 1;
-		//System.out.println("turns before = " + turns);
 		if(diceTot > 0) {
 			if(squares[num].isSquareHit()) {
 				return 0;	// Square already picked
-			} if(squares[num].value() > diceTot || (turns == 1 && squares[num].value() < diceTot)) {
-				return 4;	// Square value is greater than dice result, or second pick doesn't add up to dice result
 			}
-			if(validMove(num)) {
-				    badPlay = 0;
-			}
-			if(badPlay == 1) {
-				return 4;
+			if(!validMove(num)) {
+			    return 4;
 			}
 			squares[num].hit();
 			diceTot -= squares[num].value();
-			//System.out.println("turns after = " + turns + ", total remain = " + diceTot);
 			if(diceTot > 0) {
-				//System.out.println("syke, total remain = " + diceTot);
 				return 1;	// More squares need to be picked.  Pick another!
 			} else {
 				return 2;	// Done picking squares. Roll again!
 			}
 		}
-		return 3;	// User has no turns left
+		return 3;	// Roll new dice first!
 	}
 	
 	public boolean validMove(int target) {
 	    // if target is not hit and the value = current dice total, then this is a valid move
 	    if(!squares[target].isSquareHit() && squares[target].value() == diceTot) {
 	        return true;
+	    }
+	    // if target is > dice total, then this is not a valid move
+	    if(squares[target].value() > diceTot) {
+	        return false;
 	    }
 	    for(int i = 0; i < squares.length; i++) {
 	        // if square is already hit or is our target square, skip it.
@@ -85,7 +77,6 @@ public class Board {
 	
 	public int[] rollDice(int num) {
 		if(canRoll()) {
-			turns = 0;
 			dice[0] = r.nextInt(6) + 1;
 			if(num == 2) {
 				dice[1] = r.nextInt(6) + 1;
